@@ -53,7 +53,7 @@ module tb_dc_motor_driver;
         // Enable motor, forward, 50% speed
         enable = 1;
         direction = 1;
-        speed = 2500;   // Half of 5000 period
+        speed = 2500;   // Half of 5000 period 
         #2_000_000;
 
         // Increase speed

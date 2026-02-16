@@ -2,17 +2,17 @@ module servo_motor_driver #(
     parameter CLK_FREQ = 50_000_000,
     parameter DUTY_WIDTH = 16
 )(
-    input  wire clk,
-    input  wire reset,
-    input  wire [7:0] angle,     // 0 to 180 degree
-    output wire pwm_out
+    input   clk,
+    input   reset,
+    input   [7:0] angle,     // 0 to 180 degree
+    output  pwm_out
 );
 
     localparam integer SERVO_FREQ = 50;
-    localparam integer PERIOD_COUNT = CLK_FREQ / SERVO_FREQ;
+    localparam integer PERIOD_COUNT = CLK_FREQ / SERVO_FREQ; // generate frequency of 50Hz for servo control
 
-    localparam integer MIN_PULSE = CLK_FREQ / 1000;        // 1ms
-    localparam integer MAX_PULSE = (CLK_FREQ * 2) / 1000;  // 2ms
+    localparam integer MIN_PULSE = CLK_FREQ / 1000;        // 1ms this is for o degree
+    localparam integer MAX_PULSE = (CLK_FREQ * 2) / 1000;  // 2ms this is for 180 degree
 
     reg [DUTY_WIDTH-1:0] duty_value;
 

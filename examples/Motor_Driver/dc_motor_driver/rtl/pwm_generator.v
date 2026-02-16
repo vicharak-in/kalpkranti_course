@@ -3,14 +3,14 @@ module pwm_generator #(
     parameter PWM_FREQ = 10_000,        // Desired PWM frequency (Hz)
     parameter DUTY_WIDTH = 16          // Resolution of duty input
 )(
-    input  wire clk,
-    input  wire reset,
-    input  wire [DUTY_WIDTH-1:0] duty, // Duty value (0 → PERIOD_COUNT)
+    input   clk,
+    input   reset,
+    input   [DUTY_WIDTH-1:0] duty, // Duty value (0 → PERIOD_COUNT)
     output reg  pwm_out
 );
 
     // Calculate period count from clock and PWM frequency
-    localparam integer PERIOD_COUNT = CLK_FREQ / PWM_FREQ;
+    localparam integer PERIOD_COUNT = CLK_FREQ / PWM_FREQ; 
 
     // Counter width auto-calculated
     localparam COUNTER_WIDTH = $clog2(PERIOD_COUNT);

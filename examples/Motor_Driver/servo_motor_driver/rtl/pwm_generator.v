@@ -3,9 +3,9 @@ module pwm_generator #(
     parameter PWM_FREQ = 10_000,        // Desired PWM frequency (Hz)
     parameter DUTY_WIDTH = 16          // Resolution of duty input
 )(
-    input  wire clk,
-    input  wire reset,
-    input  wire [DUTY_WIDTH-1:0] duty, 
+    input   clk,
+    input   reset,
+    input   [DUTY_WIDTH-1:0] duty, 
     output reg  pwm_out
 );
 
